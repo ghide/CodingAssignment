@@ -35,7 +35,7 @@ public class AssignmentCode {
 	 
 	 
 	 //2.	Create an array of String called names that contains the following values:
-		//“Sam”, “Tommy”, “Tim”, “Sally”, “Buck”, “Bob”.
+		//â€œSamâ€, â€œTommyâ€, â€œTimâ€, â€œSallyâ€, â€œBuckâ€, â€œBobâ€.
 	 
 	 String [] names = {"Sam", "Tommy", "Sally","Buck", "Bob"};
 	 
@@ -67,7 +67,7 @@ public class AssignmentCode {
 			 * the previously created names array and add the length of each name to the
 			 * nameLengths array.
 			 */		
-			int[] nameLengths  = new int[5];
+			int[] nameLengths  = new int[names.length];
 			for(int m =0; m<names.length-1; m++) {
 				nameLengths[m] = names[m].length();
 			}
@@ -78,11 +78,11 @@ public class AssignmentCode {
 			 * of all the elements in the array. Print the result to the console.
 			 * 
             */
-			  int sum4 = 0;
-			for(int h=0; h<nameLengths.length-1; h++) {
-				sum4 =sum4 + nameLengths[h];
+			  int sumNameLengths= 0;
+			for(int i=0; i<nameLengths.length; i++) {
+				sumNameLengths += nameLengths[i];
 			}	
-			System.out.println(sum4);
+			System.out.println(sumNameLengths);
         }
 
 	
@@ -90,7 +90,7 @@ public class AssignmentCode {
 		/*
 		 * 7. Write a method that takes a String word, and an int n, as arguments and
 		 * returns the word concatenated to itself n number of times. (i.e. if I pass in
-		 * “Hello” and 3, I would expect the method to return “HelloHelloHello”).
+		 * â€œHelloâ€ and 3, I would expect the method to return â€œHelloHelloHelloâ€).
 		 */
 	     public static String concatenatedWords(String word, int n){
 	    	 
@@ -124,79 +124,56 @@ public class AssignmentCode {
 	     
 	     //9.	Write a method that takes an array of int and returns true if the sum of all the ints in the array is greater than 100.
 	     
-	     static int [] num= {40,20,30,50};
-		private static int sum1;
-	     
-	     
-         static boolean findSum(int[] add){
-        	 
-        	 int sum5=0;
-        	 
-        	 if(sum5 >100) return true;
-	    	 
-	    	 for( int i =1; i<add.length; i++) {
-	    		 sum5 = sum5+add[i];
-	
-	     }
-	    	 
-	    	 return true;
-	
-	}
-         
+    public static boolean isSumOfArrayIntsGreaterThan100(int[] array) {
+        
+	    int sum = 0;
+       
+	    for (int i = 0; i < array.length; i++) {
+            sum = sum + array[i];
+        }
+        if (sum < 100) {
+            return false;
+        } else {
+            return true;
+          }
+         }
          
 	     //10.	Write a method that takes an array of double and returns the average of all the elements in the array. 
 	     
-	      public static double calculateAverageOfAllElements(double [] arr) {
-	    	  
-	    	  double [] decimal = {40.45, 60.50, 80.40, 100.30,20.0};
-	    	  
-	    	  double sum6 =0;
-	    	  
-	    	  double average =0;
-	    	  
-	    	  for( int i =0; i<decimal.length-1; i++) {
-	    		  
-	    		  sum6 = sum6 + decimal[i];
-	
-	    		  double average1 = (double) sum6/decimal.length;
-	    	  } 	
-	    	  
-	    	   return average;
-}
+	      public static double averageElementsinArray(double[] array) {
+        double averageAnswer = 0;
+        double sum = 0;
+        for (double element : array) {
+            sum += element;
+            averageAnswer = sum / array.length;
+        }
+        return averageAnswer;
+    }
 
 	      
 
 //11.	Write a method that takes two arrays of double and returns true if 
 //the average of the elements in the first array is greater than the average of the elements in the second array.
 	      
-	      public static boolean isSum1GreaterThanSum2(double [] array1, double [] array2) {
-	    	  
-	    	  if (sum1>sum2) return true;
-	    	  
-	    	  double[] array11 = {30.30, 20.50, 50.50};
-	    	  
-	    	  double sum1 = 0;
-	    	  
-	    	  for( int i =0; i<array11.length-1; i++) {
-	    		  
-	    	  sum1 = sum1 + array11[i];
-	    	    	  
-	    	 
-	    	  double [] array22 = {20.50, 10.50, 30.40};
-	    	  
-	    	  double sum2 =0;
-	    	  
-	    	  for( int j =0; j<array22.length-1; j++) {
-	    		  
-	    		  sum2 = sum2 + array22[j];
-	    	  }
-	    		  
-	    		  
-	    	  }
-			return true;
-	    	 
-	    	  
-	      }
+	      public static boolean isArray1AverageGreaterThanArray2Average(double[] array1, double[] array2) {
+        double average1 = 0;
+        double sum1 = 0;
+        double average2 = 0;
+        double sum2 = 0;
+        for (double element : array1) {
+            sum1 += element;
+            average1 = sum1 / array1.length;
+        }
+        for (double element : array2) {
+            sum2 += element;
+            average2 = sum2 / array2.length;
+        }
+        if (average1 > average2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 	      
 //12.	Write a method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket, 
@@ -217,17 +194,13 @@ public class AssignmentCode {
 	//13. Write a method called willBecomeBackendSoftware that takes a boolean doYouStudy5HoursADay, and a boolean doYouPracticeMoreCodes
 		//and returns true if it is you study 5 hours a day and if you practice more codes.
 		
-		public static boolean willBecomeBackendSoftware(int study5HoursADay, boolean doYouPracticeMoreCodes) {
-			
-			if(study5HoursADay ==5 && doYouPracticeMoreCodes) {
-				//return true;
-				System.out.println("I am going to be a Backend Software.");
-			}
-			return true;
-		
-		}
-}
-
+		public static boolean willBecomeBackendSoftware(int study5HoursADay, boolean doYouPracticeMoreCodes) {       
+        if(study5HoursADay >=5 && doYouPracticeMoreCodes) {           
+            System.out.println("I am going to be a Backend Software.");
+            return true;
+        }
+        return false;       
+    }
    
 	
 	
