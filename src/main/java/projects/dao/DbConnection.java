@@ -9,15 +9,15 @@ import projects.exception.DbException;
 public class DbConnection {
 	
 	private static  String HOST = "localhost";
-	private static  String PASSWORD= "projects";
+	private static  String PASSWORD= "Test123!";
 	private static  int PORT = 3306;
-	private static  String SCHEMA= "projects";
-	private static  String USER = "projects";
+	private static  String SCHEMA= "Mysql";
+	private static  String USER = "root";
 	
 public static Connection getConnection() {
 		
 		String uri = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", HOST, PORT, SCHEMA, USER, PASSWORD);
-		
+		//Connecting with url=jdbc:mysql://localhost:3306/Mysql?user=root&password=Test123!&useSSL=false
 		System.out.println("Connecting with url=" + uri);
 		
 		
